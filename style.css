@@ -1,3 +1,158 @@
+:root {
+  --body-bg: #0b0e14;
+  --header-bg: #151a26;
+  --content-bg: #1b2230;
+  --footer-bg: #0d121c;
+  --input-bg: #121722;
+  --text-main: #f0f3f8;
+  --text-muted: #8a96a3;
+  --text-dark: #0b0e14;
+  --accent-hover: #0076ff;
+  --accent-active: #0056cc;
+  --bg-hover-light: rgba(255, 255, 255, 0.04);
+  --border-color: #263145;
+  --border-glow: #0076ff;
+  --border-width: 1px;
+  --pad-xs: 6px;
+  --pad-sm: 10px;
+  --pad-md: 15px;
+  --pad-lg: 20px;
+  --mar-base: 15px;
+  --main-radius: 8px;
+  --btn-radius: 6px;
+  --main-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --glow-shadow: 0 0 10px rgba(0, 118, 255, 0.4);
+  --btn-primary-bg: #0076ff;
+  --btn-secondary-bg: #263145;
+  --success-color: #02c39a;
+  --danger-color: #f36;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+html,
+body {
+  background-color: var(--body-bg) !important;
+  color: var(--text-main) !important;
+  font-family: var(--font-family) !important;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  direction: rtl !important;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box !important;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast) !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-family) !important;
+}
+a,
+a:visited,
+a:active {
+  color: var(--text-main);
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  color: var(--accent-hover) !important;
+}
+ul,
+ol {
+  margin-right: var(--pad-lg);
+  padding: 0;
+}
+.input-subtle,
+.inputbox,
+select,
+input,
+textarea {
+  background-color: var(--input-bg) !important;
+  color: var(--text-main) !important;
+  border: var(--border-width) solid var(--border-color) !important;
+  border-radius: var(--btn-radius) !important;
+  padding: var(--pad-sm) !important;
+  font-size: 13px !important;
+  line-height: normal !important;
+  clear: both;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+}
+.input-subtle:hover,
+.input-subtle:focus,
+.inputbox:hover,
+.inputbox:focus,
+select:hover,
+select:focus,
+input:focus,
+textarea:focus {
+  border-color: var(--border-glow) !important;
+  box-shadow: var(--glow-shadow) !important;
+  outline: none !important;
+}
+.btn-default,
+.mainoption,
+.button,
+.button1,
+.button2,
+.liteoption,
+input[type="submit"],
+input[type="button"] {
+  background-color: var(--btn-secondary-bg) !important;
+  color: var(--text-main) !important;
+  border: var(--border-width) solid var(--border-color) !important;
+  border-radius: var(--main-radius) !important;
+  box-shadow: var(--main-shadow) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  padding: var(--pad-sm) var(--pad-lg) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  vertical-align: top !important;
+  line-height: 1.5 !important;
+  height: auto !important;
+}
+.btn-default:hover,
+.mainoption:hover,
+.button:hover,
+.button1:hover,
+.button2:hover,
+.liteoption:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
+  background-color: var(--btn-primary-bg) !important;
+  border-color: var(--border-glow) !important;
+  box-shadow: var(--glow-shadow) !important;
+  color: var(--text-main) !important;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  background-color: var(--body-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--header-bg);
+  border-radius: var(--main-radius);
+  border: 2px solid var(--body-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-hover);
+}
 header {
   background-color: var(--header-bg) !important;
   border-bottom: var(--border-width) solid var(--border-color) !important;
@@ -3015,4 +3170,784 @@ cursor: pointer !important;
 
 .xen-reactor-badge[style*="#ff4d4d"], .xen-bar-ico[style*="#ff4d4d"] {
     background: linear-gradient(135deg, #ff6666, #cc1f1f) !important;
+}
+
+/* ========================================================
+   تنسيق صندوق الرد السريع وشريط الأدوات بنمط XenForo
+   ======================================================== */
+.block.quick-reply {
+    background-color: var(--content-bg) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--main-radius) !important;
+    box-shadow: var(--main-shadow) !important;
+    padding: 0 !important;
+    margin-top: var(--mar-base) !important;
+    overflow: hidden !important;
+}
+
+/* تقسيم النموذج إلى عمودين متناسقين */
+#quick_reply.xen-qr-native-form {
+    display: grid !important;
+    grid-template-columns: 130px 1fr !important;
+    grid-template-rows: auto auto !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+}
+
+/* 1. عمود الصورة الرمزية يميناً */
+.xen-qr-avatar-col {
+    grid-column: 1 / 2 !important;
+    grid-row: 1 / 3 !important;
+    background-color: var(--header-bg) !important;
+    border-left: var(--border-width) solid var(--border-color) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: var(--pad-lg) var(--pad-md) !important;
+}
+
+.xen-qr-avatar-col img {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: var(--btn-radius) !important;
+    border: 2px solid var(--border-color) !important;
+    object-fit: cover !important;
+    box-shadow: var(--main-shadow) !important;
+}
+
+#quick_reply .avatar-default,
+#quick_reply #quick-reply-avatar {
+    display: none !important;
+}
+
+/* 2. حاوية المحرر بعرض 100% */
+#quick_reply #textarea_content,
+#quick_reply .sceditor-container,
+#quick_reply > div:not(.xen-qr-avatar-col):not(.xen-qr-bottom-bar) {
+    grid-column: 2 / 3 !important;
+    grid-row: 1 / 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    border: none !important;
+    background-color: var(--input-bg) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* شريط أدوات محرر XenForo الانسيابي النظيف */
+#quick_reply div.sceditor-toolbar {
+    background-color: var(--header-bg) !important;
+    border-bottom: var(--border-width) solid var(--border-color) !important;
+    padding: 0 8px 0 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2px !important;
+    min-height: 40px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    direction: rtl !important;
+}
+
+/* فواصل خطية خفيفة بين مجموعات الأيقونات بدون مربعات */
+#quick_reply div.sceditor-group {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 4px 6px !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+#quick_reply div.sceditor-group:last-of-type {
+    border-left: none !important;
+}
+
+/* تنظيف الأيقونات وإزالة الحدود المربعة من حولها */
+#quick_reply a.sceditor-button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 6px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    filter: brightness(0) invert(0.85) !important;
+    opacity: 0.8 !important;
+    transition: background-color 0.15s ease, opacity 0.15s ease !important;
+}
+
+#quick_reply a.sceditor-button:hover,
+#quick_reply a.sceditor-button.active {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    opacity: 1 !important;
+}
+
+/* دمج زر المعاينة في أقصى اليسار بنفس أسلوب XenForo */
+#quick_reply div.xen-toolbar-preview-group {
+    margin-right: auto !important;
+    border-left: none !important;
+    border-right: 1px solid var(--border-color) !important;
+    padding: 0 !important;
+    height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.xen-toolbar-preview-btn {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-muted) !important;
+    font-family: var(--font-family) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 0 16px !important;
+    height: 100% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.15s ease !important;
+}
+
+.xen-toolbar-preview-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--accent-hover) !important;
+}
+
+.xen-toolbar-preview-btn i {
+    font-size: 15px !important;
+}
+
+/* مساحة الكتابة بعرض 100% في الوضعين (العادي والمصدري) */
+#quick_reply .sceditor-container iframe,
+#quick_reply .sceditor-container textarea {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    height: 160px !important;
+    min-height: 160px !important;
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border: none !important;
+    padding: 14px !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-family) !important;
+    font-size: 14px !important;
+    direction: rtl !important;
+    text-align: right !important;
+    margin: 0 !important;
+}
+
+/* 3. الشريط السفلي الموحد للأزرار والمرفقات */
+.xen-qr-bottom-bar {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 3 !important;
+    background-color: var(--content-bg) !important;
+    border-top: var(--border-width) solid var(--border-color) !important;
+    padding: 10px 16px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* إخفاء زر المعاينة السفلي القديم */
+#quick_reply input[name="preview"] {
+    display: none !important;
+}
+
+/* تنسيق زر إرفاق الصور/الملفات (أسفل اليمين) */
+#quick_reply .quick-reply-upload {
+    position: static !important;
+    background-color: var(--header-bg) !important;
+    color: var(--text-main) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: 6px 14px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    transition: all var(--transition-fast) !important;
+}
+
+#quick_reply .quick-reply-upload:hover {
+    border-color: var(--border-glow) !important;
+    color: var(--accent-hover) !important;
+}
+
+/* تنسيق زر الإرسال "رد" (أسفل اليسار) */
+#quick_reply button[name="post"],
+#quick_reply input[name="post"] {
+    position: static !important;
+    background-color: var(--btn-primary-bg) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--btn-primary-bg) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: 7px 22px !important;
+    font-family: var(--font-family) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    margin: 0 !important;
+    transition: all var(--transition-fast) !important;
+}
+
+#quick_reply button[name="post"]:hover,
+#quick_reply input[name="post"]:hover {
+    background-color: var(--accent-hover) !important;
+    box-shadow: var(--glow-shadow) !important;
+}
+
+/* استجابة الشاشات الصغيرة (الموبايل) */
+@media (max-width: 768px) {
+    #quick_reply.xen-qr-native-form {
+        grid-template-columns: 1fr !important;
+    }
+    .xen-qr-avatar-col {
+        display: none !important;
+    }
+    #quick_reply #textarea_content,
+    #quick_reply .sceditor-container,
+    .xen-qr-bottom-bar {
+        grid-column: 1 / 2 !important;
+    }
+}
+/* ========================================================
+   توحيد تصميم صفحة إضافة موضوع جديد والرد الكامل (XenForo Style)
+   ======================================================== */
+
+/* 1. الحاوية الرئيسية لنموذج إضافة الموضوع / الرد الكامل */
+form[name="post"]:not(#quick_reply) .block,
+form[name="post"]:not(#quick_reply) .panel {
+    background-color: var(--content-bg) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--main-radius) !important;
+    box-shadow: var(--main-shadow) !important;
+    margin-bottom: var(--mar-base) !important;
+    overflow: hidden !important;
+}
+
+/* 2. تنسيق حقل عنوان الموضوع */
+form[name="post"]:not(#quick_reply) input[name="subject"],
+form[name="post"]:not(#quick_reply) input.inputbox {
+    width: 100% !important;
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: 12px 14px !important;
+    font-family: var(--font-family) !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    box-sizing: border-box !important;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+}
+
+form[name="post"]:not(#quick_reply) input[name="subject"]:focus,
+form[name="post"]:not(#quick_reply) input.inputbox:focus {
+    border-color: var(--border-glow) !important;
+    box-shadow: var(--glow-shadow) !important;
+    outline: none !important;
+}
+
+/* 3. تنسيق حاوية المحرر الكامل وشريط الأدوات الانسيابي */
+form[name="post"]:not(#quick_reply) .sceditor-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--main-radius) !important;
+    background-color: var(--input-bg) !important;
+    overflow: hidden !important;
+    margin: 10px 0 !important;
+}
+
+form[name="post"]:not(#quick_reply) div.sceditor-toolbar {
+    background-color: var(--header-bg) !important;
+    border-bottom: var(--border-width) solid var(--border-color) !important;
+    padding: 0 8px 0 0 !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2px !important;
+    min-height: 42px !important;
+    direction: rtl !important;
+}
+
+form[name="post"]:not(#quick_reply) div.sceditor-group {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 4px 6px !important;
+    margin: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 2px !important;
+    border-left: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+form[name="post"]:not(#quick_reply) a.sceditor-button {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 6px !important;
+    border-radius: 6px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    filter: brightness(0) invert(0.85) !important;
+    opacity: 0.8 !important;
+    transition: background-color 0.15s ease, opacity 0.15s ease !important;
+}
+
+form[name="post"]:not(#quick_reply) a.sceditor-button:hover,
+form[name="post"]:not(#quick_reply) a.sceditor-button.active {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    opacity: 1 !important;
+}
+
+/* مساحة الكتابة في صفحة إضافة الموضوع (أكبر ارتفاعاً لراحة الكتابة) */
+form[name="post"]:not(#quick_reply) .sceditor-container iframe,
+form[name="post"]:not(#quick_reply) .sceditor-container textarea {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    min-height: 320px !important;
+    background-color: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border: none !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    font-family: var(--font-family) !important;
+    font-size: 14.5px !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* 4. صندوق الابتسامات الجانبي أو السفلي */
+form[name="post"]:not(#quick_reply) #smiley-box,
+form[name="post"]:not(#quick_reply) .smile-box {
+    background-color: var(--header-bg) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: var(--pad-md) !important;
+    color: var(--text-muted) !important;
+}
+
+/* 5. خيارات النشر الإضافية والتبويبات السفلية (خيارات، استطلاع، مرفقات) */
+form[name="post"]:not(#quick_reply) #tabs ul,
+form[name="post"]:not(#quick_reply) .tabs-list {
+    display: flex !important;
+    gap: 6px !important;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 10px 0 !important;
+    border-bottom: var(--border-width) solid var(--border-color) !important;
+}
+
+form[name="post"]:not(#quick_reply) #tabs li a {
+    background-color: var(--header-bg) !important;
+    color: var(--text-muted) !important;
+    padding: 8px 16px !important;
+    border-radius: var(--btn-radius) var(--btn-radius) 0 0 !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-bottom: none !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    display: inline-block !important;
+}
+
+form[name="post"]:not(#quick_reply) #tabs li.activetab a,
+form[name="post"]:not(#quick_reply) #tabs li a:hover {
+    background-color: var(--content-bg) !important;
+    color: var(--accent-hover) !important;
+}
+
+/* 6. شريط أزرار الإرسال والحفظ السفلي */
+form[name="post"]:not(#quick_reply) fieldset.submit-buttons {
+    background-color: var(--header-bg) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--main-radius) !important;
+    padding: 14px 18px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+}
+
+form[name="post"]:not(#quick_reply) input[name="post"],
+form[name="post"]:not(#quick_reply) button[name="post"] {
+    background-color: var(--btn-primary-bg) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--btn-primary-bg) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: 9px 26px !important;
+    font-family: var(--font-family) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all var(--transition-fast) !important;
+}
+
+form[name="post"]:not(#quick_reply) input[name="post"]:hover,
+form[name="post"]:not(#quick_reply) button[name="post"]:hover {
+    background-color: var(--accent-hover) !important;
+    box-shadow: var(--glow-shadow) !important;
+}
+
+form[name="post"]:not(#quick_reply) input[name="preview"],
+form[name="post"]:not(#quick_reply) input[name="draft"],
+form[name="post"]:not(#quick_reply) input[name="cancel"] {
+    background-color: var(--btn-secondary-bg) !important;
+    color: var(--text-main) !important;
+    border: var(--border-width) solid var(--border-color) !important;
+    border-radius: var(--btn-radius) !important;
+    padding: 9px 18px !important;
+    font-family: var(--font-family) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all var(--transition-fast) !important;
+}
+
+form[name="post"]:not(#quick_reply) input[name="preview"]:hover,
+form[name="post"]:not(#quick_reply) input[name="draft"]:hover {
+    border-color: var(--border-glow) !important;
+    color: var(--accent-hover) !important;
+}
+/* ================================================================= */
+/* 1. التصفير الشامل والتهيئة الميكانيكية لأزرار الـ SCEditor */
+/* ================================================================= */
+.sceditor-button,
+.sceditor-button div,
+.sceditor-button-italic div,
+.sceditor-button-bold div,
+.sceditor-button-underline div,
+.sceditor-button-strike div,
+.sceditor-button-mention div,
+.sceditor-button-faspoiler div,
+.sceditor-button-source div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-mention[data-sceditor-command="mention"] div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-twemojifa[data-sceditor-command="twemojifa"] div,
+div.sceditor-grip {
+  background-image: none !important;
+  background-position: transparent !important; /* إبطال مفعول الإزاحة القديمة تماماً */
+  text-indent: 0 !important;
+  font-size: 0 !important; /* إخفاء أي نصوص داخلية قديمة */
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. إعداد الحاوية التوليدية للأيقونة قبل العنصر */
+.sceditor-button div::before {
+  font-family:
+    "Font Awesome 5 Free", "Font Awesome 6 Free", "FontAwesome" !important;
+  font-weight: 900 !important; /* لضمان ظهور الأيقونات المصمتة Solid بشكل سليم */
+  font-size: 14px !important; /* حجم الأيقونة المريح للعين داخل شريط المحرر */
+  color: var(
+    --i-color,
+    #acbed2
+  ) !important; /* استخدام متغير لون الأيقونات الخاص بستايلك */
+  display: inline-block !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+/* تأثير التمرير (Hover) المضيء على الأزرار */
+.sceditor-button:hover div::before {
+  color: var(
+    --forum-accent,
+    #70b5ff
+  ) !important; /* التوهج بالأزرق المشرق للموقع */
+}
+
+/* ================================================================= */
+/* 3. حقن الأكواد الرمزية لـ Font Awesome لكل زر على حدة */
+/* ================================================================= */
+
+/* يوتيوب - Youtube */
+.sceditor-button-youtube div::before {
+  content: "\f167";
+  font-family: "Font Awesome 5 Brands", "Font Awesome 6 Brands" !important;
+}
+
+/* رابط - Link */
+.sceditor-button-link div::before {
+  content: "\f0c1";
+}
+
+/* كسر الرابط - Unlink */
+.sceditor-button-unlink div::before {
+  content: "\f127";
+}
+
+/* تحته خط - Underline */
+.sceditor-button-underline div::before {
+  content: "\f0cd";
+}
+
+/* الوقت - Time */
+.sceditor-button-time div::before {
+  content: "\f017";
+}
+
+/* جدول - Table */
+.sceditor-button-table div::before {
+  content: "\f0ce";
+}
+
+/* نص علوي - Superscript */
+.sceditor-button-superscript div::before {
+  content: "\f12b";
+}
+
+/* نص سفلي - Subscript */
+.sceditor-button-subscript div::before {
+  content: "\f12c";
+}
+
+/* مشطوب - Strike */
+.sceditor-button-strike div::before {
+  content: "\f0cc";
+}
+
+/* السورس كود - Source */
+.sceditor-button-source div::before {
+  content: "\f15b";
+}
+
+/* حجم الخط - Size */
+.sceditor-button-size div::before {
+  content: "\f034";
+}
+
+/* اتجاه من اليمين لليسار - RTL */
+.sceditor-button-rtl div::before {
+  content: "\f55c";
+}
+
+/* محاذاة لليمين - Right */
+.sceditor-button-right div::before {
+  content: "\f038";
+}
+
+/* إزالة التنسيق - Remove Format */
+.sceditor-button-removeformat div::before {
+  content: "\f12d";
+}
+
+/* اقتباس - Quote */
+.sceditor-button-quote div::before {
+  content: "\f10d";
+}
+
+/* طباعة - Print */
+.sceditor-button-print div::before {
+  content: "\f02f";
+}
+
+/* لصق كنص غير منسق - Paste Text */
+.sceditor-button-pastetext div::before {
+  content: "\f0ea";
+}
+
+/* لصق - Paste */
+.sceditor-button-paste div::before {
+  content: "\f0ea";
+}
+
+/* قائمة مرقمة - Ordered List */
+.sceditor-button-orderedlist div::before {
+  content: "\f0cb";
+}
+
+/* تكبير الشاشة - Maximize */
+.sceditor-button-maximize div::before {
+  content: "\f0b2";
+}
+
+/* اتجاه من اليسار لليمين - LTR */
+.sceditor-button-ltr div::before {
+  content: "\f55d";
+}
+
+/* محاذاة لليصار - Left */
+.sceditor-button-left div::before {
+  content: "\f036";
+}
+
+/* ملء السطر - Justify */
+.sceditor-button-justify div::before {
+  content: "\f039";
+}
+
+/* خط مائل - Italic */
+.sceditor-button-italic div::before {
+  content: "\f033";
+}
+
+/* صورة - Image */
+.sceditor-button-image div::before {
+  content: "\f03e";
+}
+
+/* خط أفقي فاصل - Horizontal Rule */
+.sceditor-button-horizontalrule div::before {
+  content: "\f068";
+}
+
+/* نوع التنسيق / العناوين - Format */
+.sceditor-button-format div::before {
+  content: "\f1dc";
+}
+
+/* نوع الخط - Font */
+.sceditor-button-font div::before {
+  content: "\f031";
+}
+
+/* الوجوه الضاحكة - Emoticon */
+.sceditor-button-emoticon div::before {
+  content: "\f118";
+}
+
+/* بريد إلكتروني - Email */
+.sceditor-button-email div::before {
+  content: "\f0e0";
+}
+
+/* التاريخ - Date */
+.sceditor-button-date div::before {
+  content: "\f133";
+}
+
+/* قص - Cut */
+.sceditor-button-cut div::before {
+  content: "\f0c4";
+}
+
+/* نسخ - Copy */
+.sceditor-button-copy div::before {
+  content: "\f0c5";
+}
+
+/* تلوين الخط - Color */
+.sceditor-button-color div::before {
+  content: "\f53f";
+}
+
+/* كود برمجي - Code */
+.sceditor-button-code div::before {
+  content: "\f121";
+}
+
+/* توسيط النص - Center */
+.sceditor-button-center div::before {
+  content: "\f037";
+}
+
+/* قائمة نقطية - Bullet List */
+.sceditor-button-bulletlist div::before {
+  content: "\f0ca";
+}
+
+/* خط عريض - Bold */
+.sceditor-button-bold div::before {
+  content: "\f032";
+}
+
+/* وسم عضو - Mention */
+.sceditor-button-mention div::before {
+  content: "\f1fa";
+}
+
+/* سبويلر المنتدى - Faspoiler */
+.sceditor-button-faspoiler div::before {
+  content: "\f070";
+}
+
+/* زر إظهار / إخفاء المزيد من الأزرار (نقاط زينفورو الثلاث) */
+.sceditor-button-more div::before {
+    content: "\f142" !important; /* أيقونة ⋮ */
+}
+
+/* زر إخفاء الرد (Spoiler) */
+.sceditor-button-faspoiler div::before {
+    content: "\f070" !important; /* أيقونة عين مشطوبة */
+}
+
+/* زر إخفاء مقترن بالمساهمات (Hide) */
+.sceditor-button-fahide div::before {
+    content: "\f023" !important; /* أيقونة قفل */
+}
+
+/* زر تضمين المحتوى (Embed) */
+.sceditor-button-embed div::before {
+    content: "\f144" !important; /* أيقونة تشغيل/تضمين */
+}
+
+/* زر تاريخ اليوم */
+.sceditor-button-date div::before {
+    content: "\f133" !important; /* أيقونة تقويم */
+}
+
+/* زر التوقيت الحالي */
+.sceditor-button-time div::before {
+    content: "\f017" !important; /* أيقونة ساعة */
+}
+
+/* أزرار الاستعراض والعشوائي */
+.sceditor-button-fascroll div::before {
+    content: "\f337" !important; /* سهم أفقي */
+}
+
+.sceditor-button-faupdown div::before {
+    content: "\f338" !important; /* سهم عمودي */
+}
+
+.sceditor-button-farand div::before {
+    content: "\f074" !important; /* أيقونة عشوائي */
+}
+
+/* زر رفع الصور (servimg) */
+.sceditor-button-servimg div::before {
+    content: "\f093" !important; /* أيقونة رفع / سحابة رفع */
+}
+
+/* زر تنسيق العناوين (headers) */
+.sceditor-button-headers div::before {
+    content: "\f1dc" !important; /* أيقونة حرف H للعناوين */
+}
+
+/* زر الابتسامات (twemojifa) */
+.sceditor-button-twemojifa div::before {
+    content: "\f118" !important; /* أيقونة وجه مبتسم */
 }
