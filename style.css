@@ -3646,9 +3646,13 @@ form[name="post"]:not(#quick_reply) input[name="draft"]:hover {
 .sceditor-button,
 .sceditor-button div,
 .sceditor-button-italic div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-italic[data-sceditor-command="italic"] div,
 .sceditor-button-bold div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-bold[data-sceditor-command="bold"] div,
 .sceditor-button-underline div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-underline[data-sceditor-command="underline"] div,
 .sceditor-button-strike div,
+.sceditor-container .sceditor-toolbar a.sceditor-button-strike[data-sceditor-command="strike"] div,
 .sceditor-button-mention div,
 .sceditor-button-faspoiler div,
 .sceditor-button-source div,
@@ -3656,6 +3660,7 @@ form[name="post"]:not(#quick_reply) input[name="draft"]:hover {
 .sceditor-container .sceditor-toolbar a.sceditor-button-twemojifa[data-sceditor-command="twemojifa"] div,
 div.sceditor-grip {
   background-image: none !important;
+  background: none !important;
   background-position: transparent !important; /* إبطال مفعول الإزاحة القديمة تماماً */
   text-indent: 0 !important;
   font-size: 0 !important; /* إخفاء أي نصوص داخلية قديمة */
