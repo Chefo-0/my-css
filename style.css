@@ -2752,9 +2752,11 @@ display: flex !important;
 }
 
 /* ========================================================
-   إصلاح تخطيط وأبعاد نافذة المتفاعلين بنمط XenForo
+   ضبط المحاذاة الأفقية للصورة والنصوص داخل نافذة المتفاعلين
    ======================================================== */
-.xen-reactor-item {
+
+/* 1. الصف الرئيسي (يمين: بيانات العضو | يسار: التفاعل والتاريخ) */
+.xen-reactors-list .xen-reactor-item {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -2766,59 +2768,64 @@ display: flex !important;
     box-sizing: border-box !important;
 }
 
-/* القسم الأيمن: الصورة + النصوص */
-.xen-reactor-right {
+/* 2. إجبار الصورة الرمزية والنصوص على الاصطفاف أفقياً بجانب بعضهما */
+.xen-reactors-list .xen-reactor-right {
     display: flex !important;
     flex-direction: row !important;
+    flex-wrap: nowrap !important;
     align-items: center !important;
+    justify-content: flex-start !important;
     gap: 14px !important;
     flex: 1 !important;
     min-width: 0 !important;
 }
 
-/* تحجيم الصورة الرمزية بدقة ومنع تمددها */
-.xen-reactor-avatar {
-    width: 48px !important;
-    height: 48px !important;
-    min-width: 48px !important;
-    max-width: 48px !important;
-    min-height: 48px !important;
-    max-height: 48px !important;
+/* 3. ضبط حجم الصورة الرمزية لتتناسب مع ارتفاع الأسطر الثلاثة */
+.xen-reactors-list .xen-reactor-avatar {
+    width: 52px !important;
+    height: 52px !important;
+    min-width: 52px !important;
+    max-width: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
     border-radius: 50% !important;
     overflow: hidden !important;
     border: 2px solid var(--border-color) !important;
     background-color: var(--header-bg) !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
-.xen-reactor-avatar img {
-    width: 48px !important;
-    height: 48px !important;
-    max-width: 48px !important;
-    max-height: 48px !important;
+.xen-reactors-list .xen-reactor-avatar img {
+    width: 52px !important;
+    height: 52px !important;
+    max-width: 52px !important;
+    max-height: 52px !important;
     object-fit: cover !important;
     border-radius: 50% !important;
     display: block !important;
 }
 
-/* ترتيب البيانات في 3 أسطر منفصلة عمودياً (حل مشكلة التداخل) */
-.xen-reactor-details {
+/* 4. حاوية النصوص الثلاثة بجانب الصورة مباشرة */
+.xen-reactors-list .xen-reactor-details {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
     justify-content: center !important;
-    gap: 4px !important;
+    gap: 3px !important;
     text-align: right !important;
     flex: 1 !important;
     min-width: 0 !important;
+    margin: 0 !important;
 }
 
-.xen-reactor-name {
-    display: block !important;
-    color: var(--text-main) !important;
+/* تنسيق اسم العضو */
+.xen-reactors-list .xen-reactor-name {
+    display: inline-block !important;
     font-weight: 700 !important;
     font-size: 15px !important;
     text-decoration: none !important;
@@ -2826,15 +2833,18 @@ display: flex !important;
     margin: 0 !important;
 }
 
-.xen-reactor-bio {
+/* تنسيق اللقب (تجريب) */
+.xen-reactors-list .xen-reactor-bio {
     display: block !important;
-    color: var(--text-muted) !important;
+    color: var(--text-main) !important;
     font-size: 12.5px !important;
+    opacity: 0.9 !important;
     line-height: 1.4 !important;
     margin: 0 !important;
 }
 
-.xen-reactor-stats {
+/* تنسيق الإحصائيات السفلية */
+.xen-reactors-list .xen-reactor-stats {
     display: block !important;
     color: var(--text-muted) !important;
     font-size: 12px !important;
@@ -2842,36 +2852,21 @@ display: flex !important;
     margin: 0 !important;
 }
 
-/* القسم الأيسر: أيقونة التفاعل الدائرية + التاريخ أسفلها */
-.xen-reactor-left {
+.xen-reactors-list .xen-reactor-stats strong {
+    color: var(--text-main) !important;
+    font-weight: 600 !important;
+}
+
+/* 5. القسم الأيسر: أيقونة التفاعل والتاريخ */
+.xen-reactors-list .xen-reactor-left {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    min-width: 85px !important;
+    min-width: 90px !important;
     flex-shrink: 0 !important;
     text-align: center !important;
-}
-
-.xen-reactor-badge {
-    width: 30px !important;
-    height: 30px !important;
-    min-width: 30px !important;
-    min-height: 30px !important;
-    border-radius: 50% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #fff !important;
-    font-size: 14px !important;
-}
-
-.xen-reactor-date {
-    display: block !important;
-    font-size: 11px !important;
-    color: var(--text-muted) !important;
-    white-space: nowrap !important;
 }
 /* ========================================================
 5. نافذة التقييم الإيجابي والسلبي (Reputation Modal)
