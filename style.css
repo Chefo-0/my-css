@@ -2352,13 +2352,6 @@ display: flex !important;
 .post-buttons ul li img:hover {
   transform: scale(1.05);
 }
-.custom-like-lists-container {
-  background-color: var(--header-bg) !important;
-  padding: var(--pad-xs) var(--pad-md);
-  border-top: var(--border-width) solid var(--border-color);
-  font-size: 12px;
-  color: var(--text-muted);
-}
 .like-list-row,
 .dislike-list-row {
   padding: 2px 0;
