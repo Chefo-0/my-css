@@ -2934,3 +2934,92 @@ cursor: pointer !important;
 .xen-main-like-btn .main-react-label[style*="color"] {
     opacity: 1 !important;
 }
+/* ========================================================
+   تحويل أيقونات التفاعل إلى دوائر متناسقة (XenForo Style)
+   ======================================================== */
+
+/* 1. دائرة التفاعل داخل النافذة المنبثقة (أعلى التاريخ) */
+.xen-reactors-list .xen-reactor-badge {
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    max-width: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+}
+
+.xen-reactors-list .xen-reactor-badge i {
+    font-size: 15px !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+/* 2. دوائر التفاعل المتداخلة في الشريط السفلي للمساهمة */
+.xen-bar-icons {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding-left: 6px !important;
+}
+
+.xen-bar-icons .xen-bar-ico {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    min-height: 22px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #ffffff !important;
+    border: 2px solid var(--header-bg) !important;
+    margin-left: -6px !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+    position: relative !important;
+}
+
+.xen-bar-icons .xen-bar-ico i {
+    font-size: 10px !important;
+    color: #ffffff !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+}
+
+/* 3. أيقونات التفاعل في تبويبات التصفية أعلى النافذة */
+.xen-tab-btn i {
+    width: 20px !important;
+    height: 20px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 11px !important;
+}
+/* تدرجات لونية لامعة لدوائر التفاعل */
+.xen-reactor-badge[style*="#0076ff"], .xen-bar-ico[style*="#0076ff"] {
+    background: linear-gradient(135deg, #2b90ff, #005bb5) !important;
+}
+
+.xen-reactor-badge[style*="#ff3366"], .xen-bar-ico[style*="#ff3366"] {
+    background: linear-gradient(135deg, #ff5c85, #d61a4b) !important;
+}
+
+.xen-reactor-badge[style*="#ffcc00"], .xen-bar-ico[style*="#ffcc00"],
+.xen-reactor-badge[style*="#ffaa00"], .xen-bar-ico[style*="#ffaa00"] {
+    background: linear-gradient(135deg, #ffd633, #e69500) !important;
+}
+
+.xen-reactor-badge[style*="#ff4d4d"], .xen-bar-ico[style*="#ff4d4d"] {
+    background: linear-gradient(135deg, #ff6666, #cc1f1f) !important;
+}
