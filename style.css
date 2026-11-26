@@ -2261,6 +2261,8 @@ a[href*="mark"]:hover i {
   align-items: center;
   text-align: center;
   gap: var(--pad-xs);
+  max-width: 240px;
+  width: 100%;
 }
 .post-author-name {
   font-size: 15px;
@@ -2282,10 +2284,12 @@ a[href*="mark"]:hover i {
   margin: 0;
 }
 .post-author-avatar .avatar-big img {
-  width: 120px !important;
-  height: 120px !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 160px !important;
+  max-height: 320px !important;
   border-radius: var(--main-radius) !important;
-  border: 3px solid var(--border-color) !important;
+  border: 2px solid var(--border-color) !important;
   object-fit: cover;
   background-color: var(--input-bg);
   box-shadow: var(--main-shadow);
@@ -2608,7 +2612,6 @@ display: flex !important;
     --header-bg
   ) !important; /* اللون الداكن المصمت #151a26 */
   background-image: none !important;
-  border-left: var(--border-width) solid var(--border-color) !important;
 }
 /* 4. تنسيق وحصر مكان شارة المزاج (علم فلسطين) لمنع تمدد البياض خلفها */
 .post-author-badge,
