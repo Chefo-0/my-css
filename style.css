@@ -1810,6 +1810,7 @@ padding: var(--pad-sm) !important;
   margin-bottom: var(--mar-base);
   overflow: hidden;
 }
+
 .posts-header {
   background-color: var(--header-bg) !important;
   padding: var(--pad-sm) var(--pad-md);
@@ -2243,7 +2244,9 @@ a[href*="mark"]:hover i {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  padding: 0 !important;
 }
+
 .aside-post {
   width: 240px !important;
   min-width: 240px !important;
@@ -2290,10 +2293,6 @@ a[href*="mark"]:hover i {
   object-fit: cover;
   background-color: var(--input-bg);
   box-shadow: var(--main-shadow);
-}
-.post-author-badge img {
-  object-fit: contain;
-  margin-top: var(--pad-xs);
 }
 .post-author-details {
   width: 100%;
@@ -2410,6 +2409,17 @@ a[href*="mark"]:hover i {
   text-decoration: none;
   font-weight: 600;
 }
+
+.post{
+  padding: 0 !important;
+}
+
+@media (min-width: 961px) {
+    .post {
+        margin: 0;
+    }
+}
+
 .post-wrap .post-content > br,
 .post-wrap .post-content > hr {
   display: none;
@@ -2433,6 +2443,7 @@ a[href*="mark"]:hover i {
   display: flex;
   flex-direction: column;
   border-top: var(--border-width) solid var(--border-color);
+  margin: 0 !important;
 }
 .post-wrap .post-footer,
 .post .post-footer,
@@ -2592,11 +2603,6 @@ display: flex !important;
   margin: var(--pad-sm) 0 !important;
   width: 100% !important;
 }
-.post-author-badge img {
-  max-width: 100% !important;
-  height: auto !important;
-  border-radius: var(--btn-radius) !important;
-}
 
 /* ========================================================
    تطهير وتنسيق عمود الكاتب الجانبي بالكامل ومنع البياض
@@ -2625,6 +2631,7 @@ display: flex !important;
   border-radius: var(--btn-radius) !important;
   margin: var(--pad-xs) auto !important;
   display: block !important;
+  object-fit: contain;
 }
 /* ========================================================
    1. تنسيق شريط التفاعلات والأزرار بنمط XenForo
